@@ -1,0 +1,15 @@
+.Profile-Picture {
+    border: 1px black solid;
+    max-width: fit-content;
+    border-radius: 50px;
+}
+
+.Profile-Picture img {
+    width: 100px;
+    height: 100px;
+    mix-blend-mode: multiply;
+}
+
+.Profile-Container {
+    display: flex;
+}

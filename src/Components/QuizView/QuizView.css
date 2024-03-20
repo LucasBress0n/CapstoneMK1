@@ -1,0 +1,34 @@
+.QuizView-container {
+    margin: auto;
+    border: 1px black solid;
+}
+
+.QuizView-profile-container {
+    width: 50px;
+    display: flex;
+}
+
+.QuizView-user-profile {
+    width: 100%;
+}
+
+.QuizView-questions-list {
+    margin: 1% 5% 1% 5%; 
+    text-align: center;
+    user-select: none;
+    border: 1px black solid;
+}
+
+.QuizView-question-questionText {
+    text-decoration: underline;
+    font-size: large;
+    font-weight: bold;
+}
+
+.QuizView-question-correct {
+    background-color: greenyellow;
+}
+
+.QuizView-question-incorrect {
+    background-color: red;
+}

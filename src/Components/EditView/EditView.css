@@ -1,0 +1,34 @@
+.EditView-main-container {
+    margin: 3% 30% 0px 30%;
+    border: 1px solid black;
+
+}
+
+.EditView-options-main-container {
+    display: flex;
+}
+
+.EditView-option-container {
+    border: 1px solid red;
+    margin: 1% 3% 0px 3%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.EditView-option {
+    margin: 5px 10px 0px 10px;
+    text-align: center;
+    display: flex;
+}
+
+.EditView-header {
+    
+}
+
+.EditView-head {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}

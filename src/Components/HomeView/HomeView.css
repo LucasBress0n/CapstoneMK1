@@ -1,0 +1,54 @@
+.HomeView-home-container {
+    border: 1px black solid;
+    margin: auto;
+
+}
+
+.HomeView-quiz-profilepicture {
+    width: 100%
+}
+
+.HomeView-user-profile {
+    display: flex;
+    border: 1px solid green;
+}
+
+.HomeView-quiz-title {
+    border: black solid 1px;
+    margin: 0px 0px 0px 0px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.HomeView-header {
+    border: 1px solid red;
+    display: flex;
+}
+
+.HomeView-banner-container {
+    border: 2px solid black;
+    border-radius: 3px;
+    margin: 3% 3% 3% 3%;
+}
+
+.HomeView-quiz-banner {
+    width: 100%;
+    margin: auto;
+}
+
+.HomeView-profilepicture-container {
+    width: 50px;
+}
+
+.Homeview-profile-displayname {
+    margin: 5% 0px 0px 0px;
+}
+
+.Homeview-profile-name {
+    margin: 0px 0px 0px 0px;
+}
+
+.HomeView-title-container {
+    border: yellow 1px solid;
+    margin: 1% 0px 0px 10%;
+}

@@ -1,0 +1,160 @@
+.create-container {
+    width: 150vh;
+    margin: 3% 20% 0px 20%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    text-align: center;
+    border: 1px rgb(0, 0, 0) solid;
+}
+
+.create-fieldset {
+    border: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.create-submit-container {
+    margin: 0px 0px 0px 1%;
+    display: flex;
+    flex-direction: column;
+}
+
+.create-title {
+    flex-grow: 1;
+    padding: 0.375rem 0.75rem;
+    font-size: 2rem;
+    border: 1px solid blue;
+    border-radius: 0.25rem;
+}
+
+.create-banner {
+    margin: 2% 0px 0px 0px;
+    padding: 0.375px 0.75px;
+    border: 1px solid black;
+    border-radius: 0.25rem;
+}
+
+.create-submit {
+    border: black 1px solid;
+    border-radius: 5px;
+    background-color: rgb(105, 255, 118);
+    color: black;
+    margin: 2% 0px 0px 0px;
+}
+
+.create-border-article {
+    border: 1px solid black;
+    flex-basis: 43%;
+    border-radius: 0.35rem;
+    overflow-y: auto;
+}
+
+.create-add-question {
+    border: none;
+    margin: 4% 30px 0px 30px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.create-form {
+    height: fit-content;
+}
+
+.create-add-question {
+    height: 80%;
+}
+
+.create-questions-btn {
+    user-select: none;
+    flex-grow: 1;
+    margin-left: 10px;
+    padding: 0.375rem 0.75rem;
+    font-size: 2rem;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: #64ee77;
+}
+
+.float-right {
+    flex-grow: 3;
+    float: right;
+}
+
+.create-questions-btn:hover {
+    background-color: rgb(0, 151, 0);
+}
+
+.create-submit:hover {
+    background-color: rgb(0, 151, 0);
+}
+
+.create-nohighlights {
+    user-select: none;
+    font-size: 2rem;
+}
+
+.create-no-border {
+    border: none;
+}
+
+.create-questions-input {
+    margin: 10px 0px 0px 0px;
+    width: 80%;
+    background-color: darkgrey;
+    padding: 0.375rem 0.75rem;
+    font-size: 1.5rem;
+    border-radius: 0.35rem;
+    
+}
+
+
+.create-answersSelect-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.create-selectedQuestion-input {
+    color: white;
+    background-color: rgb(97, 97, 97);
+    padding: 0.275rem 0.35rem;
+    border-radius: 0.35rem;
+}
+
+.create-answers-dropdown {
+    float: right;
+    background-color: rgb(253, 128, 128);
+    padding: 0.275rem 0.35rem;
+    border-radius: 0.35rem;
+}
+
+.create-answers-input {
+    width: 80%;
+    background-color: darkgrey;
+    border-radius: 0.25rem;
+    padding: 0.375rem 0.75rem;
+    font-size: 2rem;
+}
+
+.create-currently-gold {
+    background-color: gold;
+
+}
+
+.create-answer-flex {
+    display: flex;
+    margin: 3% 1% 0px 1%;
+}
+
+.text-size-small {
+    font-size: smaller;
+
+}
+
+.create-checkbox {
+    max-width: fit-content;
+}
