@@ -154,6 +154,7 @@ export const EditView = ({ currentUser }) => {
         <header className="EditView-header">
           <div className="EditView-head">
             <input
+              className="EditView-title"
               onChange={(event) => {
                 const copy = { ...currentQuiz };
                 copy.title = event.target.value;
@@ -161,15 +162,17 @@ export const EditView = ({ currentUser }) => {
               }}
               defaultValue={currentQuiz?.title ? currentQuiz.title : ``}
             />
-            <input
-              onChange={(event) => {
-                const copy = [...currentQuiz];
-                copy.banner = event.target.value;
-                setCurrentQuiz(copy);
-              }}
-              defaultValue={currentQuiz?.banner ? currentQuiz.banner : ``}
-            />
-            <button type="submit">Finalize</button>
+            <div className="EditView-submit-container">
+              <button type="submit">Finalize</button>
+              <input
+                onChange={(event) => {
+                  const copy = [...currentQuiz];
+                  copy.banner = event.target.value;
+                  setCurrentQuiz(copy);
+                }}
+                defaultValue={currentQuiz?.banner ? currentQuiz.banner : ``}
+              />
+            </div>
           </div>
         </header>
         <div className="EditView-options-main-container">
@@ -199,6 +202,7 @@ export const EditView = ({ currentUser }) => {
                 return (
                   <div key={currentObj.id} className="EditView-option">
                     <input
+                      className="EditView-input-question"
                       required
                       onClick={() => {
                         setSelectedQuestion(currentObj.id);
@@ -309,7 +313,7 @@ export const EditView = ({ currentUser }) => {
                         <div key={questAnsObj.id} className="EditView-option">
                           <input
                             disabled
-                            className=""
+                            className="EditView-answer-input"
                             defaultValue={answerObj.name}
                           />
                           {questAnsObj.isCorrect ? (

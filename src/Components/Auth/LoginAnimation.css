@@ -1,0 +1,217 @@
+.LoginView-webpage-name {
+    border: 2px black solid;
+    background-color: #f4fafa;
+    border-radius: 10px;
+    width: 33%;
+    display: column;
+    justify-content: center;
+  }
+  
+  .LoginView-animation-welcome {
+    display:flex;
+    justify-content: center;
+  }
+
+  .LoginView-animation-welcome span {
+    
+    font-weight: bold;
+    font-size: 3em;
+    opacity: 0%;
+    margin-top: 1%;
+    animation: drop 0.4s linear forwards;
+  }
+  
+  .LoginView-animation-welcome span:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+  
+  .LoginView-animation-welcome span:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+  
+  .LoginView-animation-welcome span:nth-child(4) {
+    animation-delay: 0.6s;
+  }
+  
+  .LoginView-animation-welcome span:nth-child(5) {
+    animation-delay: 0.8s;
+  }
+  
+  .LoginView-animation-welcome span:nth-child(6) {
+    animation-delay: 1s;
+  }
+  
+  .LoginView-animation-welcome span:nth-child(7) {
+    animation-delay: 1.2s;
+  }
+  
+  
+  @keyframes drop {
+    0% {
+      transform: translateY(-200px) scaleY(0.9);
+    }
+    5% {
+      opacity: 0.7;
+    }
+    50% {
+      transform: translateY(0px) scaleY(1);
+      opacity: 1;
+    }
+    65% {
+      transform: translateY(-17px) scaleY(0.9)
+    }
+    75% {
+      transform: translateY(-22px) scaleY(0.9);
+    }
+    100% {
+      transform: translateY(0px) scaleY(1);
+      opacity: 1;
+    }
+  }
+
+  .LoginView-animation-to {
+    display:flex;
+    justify-content: center;
+  }
+
+  .LoginView-animation-to span {
+    font-weight: bold;
+    font-size: 3em;
+    margin-top: 1%;
+  }
+
+  .LoginView-animation-to-magnet-left {
+    opacity: 0%;
+    animation: magnetLeft 3.0s linear forwards;
+  }
+
+  .LoginView-animation-to-magnet-right {
+    opacity: 0%;
+    animation: magnetRight 3.0s linear forwards;
+  }
+
+  @keyframes magnetLeft {
+    0% {
+      transform: translateX(-200px) scaleX(0.9);
+    }
+    5% {
+      opacity: 0.7;
+    }
+    50% {
+      transform: translateX(0px) scaleX(1);
+      opacity: 1;
+    }
+    65% {
+      transform: translateX(-7px) scaleX(0.9)
+    }
+    75% {
+      transform: translateX(-10px) scaleX(0.9);
+    }
+    100% {
+      transform: translateX(0px) scaleX(1);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes magnetRight {
+    0% {
+      transform: translateX(200px) scaleX(0.9);
+    }
+    5% {
+      opacity: 0.7;
+    }
+    50% {
+      transform: translateX(0px) scaleX(1);
+      opacity: 1;
+    }
+    65% {
+      transform: translateX(7px) scaleX(0.9)
+    }
+    75% {
+      transform: translateX(10px) scaleX(0.9);
+    }
+    100% {
+      transform: translateX(0px) scaleX(1);
+      opacity: 1;
+    }
+  } 
+
+
+  .LoginView-animation-can-you {
+    display:flex;
+    justify-content: space-around;
+  }
+
+  .LoginView-animation-can-you {
+    font-weight: bold;
+    font-size: 2em;
+    margin-top: 1%;
+  }
+
+  .LoginView-animation-can-you span {
+    opacity: 0%;
+    animation: ghost 7.0s linear forwards;
+  }
+
+  .LoginView-animation-can-you span:nth-child(2) {
+    animation-delay: 2s;
+  }
+
+  @keyframes ghost {
+    0% {
+      opacity: 0.1;
+    }
+    10% {
+      opacity: 0.2;
+    }
+    20% {
+        opacity: 0.3;
+    }
+    30% {
+        opacity: 0.4;
+    }
+    40% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    60% {
+        opacity: 0.7;
+    }
+    70% {
+        opacity: 0.8;
+    }
+    80% {
+        opacity: 0.9;
+    }
+    100% {
+        opacity: 1;
+    }
+  } 
+
+  .LoginView-animation-find-the-answer {
+    display:flex;
+    justify-content: space-around;
+    margin-top: 30%;
+    font-weight: bold;
+    font-size: 2em;
+    margin-left: 11%;
+  }
+
+  .LoginView-animation-find-the-answer span {
+    text-align: center;
+    opacity: 0%;
+    animation: ghost 7.0s linear forwards;
+  }
+
+  .LoginView-animation-find-the-answer span:nth-child(1) {
+    animation-delay: 4s;
+  }
+  .LoginView-animation-find-the-answer span:nth-child(2) {
+    animation-delay: 5s;
+  }
+
+  .LoginView-animation-find-the-answer span:nth-child(3) {
+    animation-delay: 6s;
+  }

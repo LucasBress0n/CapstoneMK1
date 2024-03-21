@@ -15,19 +15,21 @@ export const ProfileView = ({ currentUser }) => {
   return (
     <div className="ProfileView-main-container">
       <div className="ProfileView-profileinfo-container">
-        <p>{currentUserInfo.displayname}</p>
-        <p>{currentUserInfo.name}</p>
-        <p>
+        <div className="ProfileView-profile-picture-container">
           <img className="imgthing" src={currentUserInfo.profilepicture} />
-        </p>
+        </div>
+        <div className="ProfileView-profile-names-container">
+          <p>{currentUserInfo.displayname}</p>
+          <p>{currentUserInfo.name}</p>
+        </div>
       </div>
-      <div className="ProfileView-profile-posts">
+      <div className="ProfileView-profile-posts-container">
         {currentUserInfo?.quiz?.length != 0 ? (
-          <div>
+          <>
             {currentUserInfo?.quiz?.map((quizObj) => {
               return <CreateProfilePosts key={quizObj.id} quizObj={quizObj} />;
             })}
-          </div>
+          </>
         ) : (
           "No Posts"
         )}

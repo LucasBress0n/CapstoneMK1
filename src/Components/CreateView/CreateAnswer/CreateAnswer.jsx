@@ -75,14 +75,15 @@ export const CreateAnswerInput = ({
                   }}
                 />
               )}
-              <p className="text-size-small">Correct!</p>
+              <p className="text-size-small">Correct?</p>
             </label>
             <button
+              className="CreateView-delete-btn"
               onClick={() => {
                 handleDeleteAnswer(answerObj);
               }}
             >
-              Delete
+              🗑️
             </button>
           </div>
         </div>

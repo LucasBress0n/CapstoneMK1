@@ -12,6 +12,7 @@ export const QuizQuestionsCreate = ({
       {quizObj.questionAnswers.map((QuestionAnswerObj) => {
         return (
           <p
+            className="QuizView-questionAnswer-p"
             type="submit"
             key={QuestionAnswerObj.id}
             onClick={() => {

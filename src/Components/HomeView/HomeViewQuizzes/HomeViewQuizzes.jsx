@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export const HomeViewQuizzes = ({ quizObj }) => {
   return (
-    <div>
+    <div className="HomeView-post-main-container">
       <header className="HomeView-header">
         <div>
           <section className="HomeView-user-profile">
@@ -20,9 +20,8 @@ export const HomeViewQuizzes = ({ quizObj }) => {
             </div>
           </section>
         </div>
-        <div className="HomeView-title-container">
-          <h3 className="HomeView-quiz-title">{quizObj.title}</h3>
-        </div>
+
+        <p className="HomeView-quiz-title">{quizObj.title}</p>
       </header>
       <div className="HomeView-banner-container">
         <Link to={`/quiz/${quizObj.id}`}>

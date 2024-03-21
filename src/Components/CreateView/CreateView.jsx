@@ -129,7 +129,7 @@ export const CreateView = ({ currentUser }) => {
                   quiz.banner = evt.target.value;
                 }}
                 className="create-banner"
-                placeholder="Banner"
+                placeholder="Image URL"
               />
             </fieldset>
           </fieldset>
@@ -188,11 +188,12 @@ export const CreateView = ({ currentUser }) => {
                         }}
                       />
                       <button
+                        className="CreateView-delete-btn"
                         onClick={() => {
                           handleDeleteQuestion(questionObj);
                         }}
                       >
-                        Delete
+                        🗑️
                       </button>
                     </fieldset>
                   );
@@ -204,7 +205,7 @@ export const CreateView = ({ currentUser }) => {
                 <input
                   disabled
                   className="create-selectedQuestion-input"
-                  placeholder="None"
+                  placeholder="Selected Question"
                 />
                 {questions.length != 0 && (
                   <CreateAnswerDropdown

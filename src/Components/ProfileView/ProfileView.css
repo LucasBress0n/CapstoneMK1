@@ -5,4 +5,57 @@
 .ProfileView-main-container {
     margin: auto;
     border: 1px solid black;
+    width: 60%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.ProfileView-profileinfo-container {
+    display: flex;
+}
+
+.ProfileView-profile-picture-container {
+    margin: 4% 2% 0px 4%;
+}
+
+.ProfileView-profile-names-container {
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ProfileView-profile-names-container > p {
+    padding: 0px;
+    margin: 0px;
+
+}
+.ProfileView-profile-posts-container {
+    margin-top: 30%;
+    border: 1px solid black;
+    display: flex;
+    height: 60vh;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.ProfileView-profile-post {
+    border: 1px solid black;
+    margin: 10px 10px 10px 10px;
+    height: fit-content;
+    display: flex;
+    text-align: center
+}
+
+.ProfileView-profile-post-links {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.ProfileView-profile-post-title {
+    text-align: center;
+    margin: 10px 5px 10px 10px;
 }
