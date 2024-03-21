@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import {
   createUser,
@@ -62,15 +62,23 @@ export const Register = () => {
   };
 
   return (
-    <main className="register-container">
-      <form className="register-form" onSubmit={handleRegister}>
-        <fieldset className="register-fieldset">
+    <main className="RegisterView-main-container">
+      <header>
+        <Link className="RegisterView-back-to-login-container" to="/login">
+          <img
+            className="RegisterView-back-to-login"
+            src="./src/Components/images/leftArrow.png"
+          />
+        </Link>
+      </header>
+      <form className="RegisterView-main-form" onSubmit={handleRegister}>
+        <fieldset className="RegisterView-fieldset">
           <div>
             <input
               onChange={updateUser}
               type="text"
               id="name"
-              className="register-form-input"
+              className="RegisterView-form-input"
               placeholder="Enter your account name"
               required
               autoFocus
@@ -81,19 +89,19 @@ export const Register = () => {
               onChange={updateUser}
               type="text"
               id="displayname"
-              className="register-form-input"
+              className="RegisterView-form-input"
               placeholder="Enter your display name"
               required
             />
           </div>
         </fieldset>
-        <fieldset className="register-fieldset">
+        <fieldset className="RegisterView-email-password">
           <div>
             <input
               onChange={updateUser}
               type="email"
               id="email"
-              className="register-form-input"
+              className="RegisterView-form-input"
               placeholder="Enter your email"
               required
             />
@@ -103,17 +111,17 @@ export const Register = () => {
               onChange={updateUser}
               type="password"
               id="password"
-              className="register-form-input"
+              className="RegisterView-form-input"
               placeholder="Enter your password"
               required
             />
           </div>
         </fieldset>
-        <fieldset className="register-fieldset">
-          <div>
-            <button type="submit">Register</button>
-          </div>
-        </fieldset>
+        <div className="RegisterView-register-button-container">
+          <button className="RegisterView-register-button" type="submit">
+            Register
+          </button>
+        </div>
       </form>
     </main>
   );

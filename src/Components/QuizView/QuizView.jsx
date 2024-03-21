@@ -59,23 +59,23 @@ export const QuizView = () => {
   return (
     <main className="QuizView-container">
       {quizCompleted ? (
-        <div>
-          <header>
+        <div className="QuizView-results-main-container">
+          <header className="QuizView-profile-main-container">
             <div className="QuizView-profile-container">
               <img
                 className="QuizView-user-profile"
                 src={quiz?.user?.profilepicture}
               />
               <p>{quiz?.user?.name}</p>
-              <h3>{quiz?.title}</h3>
-              <p>
-                {selectedAnswers
-                  ? selectedAnswers.filter((filt) => filt.isCorrect === true)
-                      .length
-                  : "0"}
-                /{TotalQuestions ? TotalQuestions.length : "0"}
-              </p>
             </div>
+            <h3>{quiz?.title}</h3>
+            <p>
+              {selectedAnswers
+                ? selectedAnswers.filter((filt) => filt.isCorrect === true)
+                    .length
+                : "0"}
+              /{TotalQuestions ? TotalQuestions.length : "0"}
+            </p>
           </header>
           <div className="QuizView-questions-container">
             {quizQuestion.map((quizObj) => {
@@ -96,15 +96,15 @@ export const QuizView = () => {
           <header>
             <img src={quiz.banner} />
           </header>
-          <header>
+          <header className="QuizView-profile-main-container">
             <div className="QuizView-profile-container">
               <img
                 className="QuizView-user-profile"
                 src={quiz?.user?.profilepicture}
               />
               <p>{quiz?.user?.name}</p>
-              <h3>{quiz?.title}</h3>
             </div>
+            <h3>{quiz?.title}</h3>
           </header>
           <div className="QuizView-questions-container">
             {quizQuestion.map((quizObj) => {

@@ -16,9 +16,11 @@ export const HomeView = () => {
     <>
       <div className="HomeView-home-container">
         <div>
-          <header>For you Following</header>
+          <header className="HomeView-ForYou-Following">
+            For you Following
+          </header>
         </div>
-        <div>
+        <div className="HomeView-allPosts-container">
           {allQuizzes.map((quizObj) => {
             return <HomeViewQuizzes key={quizObj.id} quizObj={quizObj} />;
           })}

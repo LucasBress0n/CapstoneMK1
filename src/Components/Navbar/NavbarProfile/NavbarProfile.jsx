@@ -17,9 +17,12 @@ export const NavbarProfile = ({ currentUser }) => {
     <>
       <div className="Profile-Container">
         <div className="Profile-Picture">
-          <img src={userProfile?.profilepicture} />
+          <img
+            className="Profile-Picture-Img"
+            src={userProfile?.profilepicture}
+          />
         </div>
-        <div>
+        <div className="navbar-profile-names-info">
           <p>{userProfile?.displayname}</p>
           <p>
             {userProfile?.name}
