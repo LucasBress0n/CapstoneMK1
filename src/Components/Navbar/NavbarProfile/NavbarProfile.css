@@ -1,11 +1,15 @@
 .Profile-Picture {
     border: 1px black solid;
-    width: 110px;
-    border-radius: 60px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
 }
 
 .Profile-Picture-Img {
-    width: 100%;
+    width: 100px;
+    height: 100px;
     mix-blend-mode: multiply;
 }
 
