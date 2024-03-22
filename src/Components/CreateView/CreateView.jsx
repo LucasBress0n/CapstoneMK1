@@ -19,6 +19,7 @@ export const CreateView = ({ currentUser }) => {
   const [selectedQuestion, setSelectedQuestion] = useState({});
   const [answers, setAnswers] = useState([]);
   const [questionsAnswers, setQuestionsAnswers] = useState([]);
+  const [selectedText, setSelectedText] = useState({});
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -36,6 +37,16 @@ export const CreateView = ({ currentUser }) => {
       setAnswers(AnswerArray);
     });
   }, []);
+
+  useEffect(() => {
+    questions?.map((questObj) => {
+      console.log(questObj);
+      console.log(selectedQuestion);
+      if (questObj.id === selectedQuestion) {
+        console.log(questObj.questionText);
+      }
+    });
+  }, [selectedQuestion]);
 
   const handleSaveQuiz = (quizObj) => {
     if (questionsAnswers.length === 0) {
@@ -205,6 +216,9 @@ export const CreateView = ({ currentUser }) => {
                 <input
                   disabled
                   className="create-selectedQuestion-input"
+                  value={
+                    selectedQuestion.id ? selectedQuestion.questionText : ``
+                  }
                   placeholder="Selected Question"
                 />
                 {questions.length != 0 && (

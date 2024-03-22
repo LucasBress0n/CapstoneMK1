@@ -61,3 +61,52 @@
 .HomeView-allPosts-container {
     background-color: #deecfc;
 }
+
+.HomeView-createpost-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #f1f8ff;
+}
+
+.HomeView-textarea-container {
+    display: flex;
+}
+
+.HomeView-ForYou-Following {
+    border-bottom: 5px solid #00B4D8;
+}
+
+.HomeView-createpost-profilepicture {
+    width: 50px;
+    height: 50px;
+}
+
+.HomeView-createpost-textarea {
+    font-size: x-large;
+    border: none;
+    outline: none;
+    background-color: #f1f8ff;
+    flex-basis: 100%;
+    height: 10vh;
+    text-align:left;
+    padding: 1% 4% 2px 2%;
+    max-lines: 4;
+    resize: none;
+}
+
+.HomeView-createpost-btn {
+    margin-left: 90.1%;
+    width: 10%;
+    border: none;
+    border: 1px solid black;
+    border-radius: 2px;
+    background-color: #00B4D8;
+}
+
+.HomeView-createpost-btn:hover {
+    background-color: #008eab;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
