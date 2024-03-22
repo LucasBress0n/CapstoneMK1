@@ -8,10 +8,7 @@ export const QuizViewResults = ({ quizObj, answers, selectedAnswers }) => {
         if (QuestionAnswerObj.isCorrect) {
           if (selectedAnswers.includes(QuestionAnswerObj)) {
             return (
-              <p
-                key={QuestionAnswerObj.id}
-                className="QuizView-question-correct"
-              >
+              <p className="QuizView-question-correct">
                 {answers.map((answerObj) => {
                   if (answerObj.id === QuestionAnswerObj.answerId) {
                     return answerObj.name;
@@ -21,7 +18,7 @@ export const QuizViewResults = ({ quizObj, answers, selectedAnswers }) => {
             );
           } else {
             return (
-              <p key={QuestionAnswerObj.id} className="QuizView-question-grey">
+              <p className="QuizView-question-grey">
                 {answers.map((answerObj) => {
                   if (answerObj.id === QuestionAnswerObj.answerId) {
                     return answerObj.name;
@@ -32,10 +29,7 @@ export const QuizViewResults = ({ quizObj, answers, selectedAnswers }) => {
           }
         } else if (selectedAnswers.includes(QuestionAnswerObj)) {
           return (
-            <p
-              key={QuestionAnswerObj.id}
-              className="QuizView-question-incorrect"
-            >
+            <p className="QuizView-question-incorrect">
               {answers.map((answerObj) => {
                 if (answerObj.id === QuestionAnswerObj.answerId) {
                   return answerObj.name;
@@ -45,7 +39,7 @@ export const QuizViewResults = ({ quizObj, answers, selectedAnswers }) => {
           );
         } else {
           return (
-            <p key={QuestionAnswerObj.id} className="QuizView-question-grey">
+            <p className="QuizView-question-grey">
               {answers.map((answerObj) => {
                 if (answerObj.id === QuestionAnswerObj.answerId) {
                   return answerObj.name;

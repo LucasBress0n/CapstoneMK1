@@ -13,40 +13,38 @@ export const QuizQuestionsCreate = ({
       </header>
       {quizObj.questionAnswers.map((QuestionAnswerObj) => {
         return (
-          <>
-            <p
-              className="QuizView-questionAnswer-p"
-              type="submit"
-              key={QuestionAnswerObj.id}
-            >
-              <input
-                className="QuizView-checkbox"
-                type="checkbox"
-                onClick={() => {
-                  if (
+          <p
+            key={QuestionAnswerObj.id}
+            className="QuizView-questionAnswer-p"
+            type="submit"
+          >
+            <input
+              className="QuizView-checkbox"
+              type="checkbox"
+              onClick={() => {
+                if (
+                  selectedAnswers.filter(
+                    (answersObj) => answersObj.id === QuestionAnswerObj.id
+                  ).length === 0
+                ) {
+                  const copy = [...selectedAnswers];
+                  copy.push(QuestionAnswerObj);
+                  setSelectedAnswers(copy);
+                } else {
+                  setSelectedAnswers(
                     selectedAnswers.filter(
-                      (answersObj) => answersObj.id === QuestionAnswerObj.id
-                    ).length === 0
-                  ) {
-                    const copy = [...selectedAnswers];
-                    copy.push(QuestionAnswerObj);
-                    setSelectedAnswers(copy);
-                  } else {
-                    setSelectedAnswers(
-                      selectedAnswers.filter(
-                        (answerObj) => answerObj.id != QuestionAnswerObj.id
-                      )
-                    );
-                  }
-                }}
-              />
-              {answers.map((answerObj) => {
-                if (answerObj.id === QuestionAnswerObj.answerId) {
-                  return answerObj.name;
+                      (answerObj) => answerObj.id != QuestionAnswerObj.id
+                    )
+                  );
                 }
-              })}
-            </p>
-          </>
+              }}
+            />
+            {answers.map((answerObj) => {
+              if (answerObj.id === QuestionAnswerObj.answerId) {
+                return answerObj.name;
+              }
+            })}
+          </p>
         );
       })}
     </div>
