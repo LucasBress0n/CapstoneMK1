@@ -1,4 +1,4 @@
-export const QuizViewResults = ({ quizObj, answers }) => {
+export const QuizViewResults = ({ quizObj, answers, selectedAnswers }) => {
   return (
     <div className="QuizView-questions-list">
       <header className="QuizView-question-questionText">
@@ -6,16 +6,31 @@ export const QuizViewResults = ({ quizObj, answers }) => {
       </header>
       {quizObj.questionAnswers.map((QuestionAnswerObj) => {
         if (QuestionAnswerObj.isCorrect) {
-          return (
-            <p key={QuestionAnswerObj.id} className="QuizView-question-correct">
-              {answers.map((answerObj) => {
-                if (answerObj.id === QuestionAnswerObj.answerId) {
-                  return answerObj.name;
-                }
-              })}
-            </p>
-          );
-        } else
+          if (selectedAnswers.includes(QuestionAnswerObj)) {
+            return (
+              <p
+                key={QuestionAnswerObj.id}
+                className="QuizView-question-correct"
+              >
+                {answers.map((answerObj) => {
+                  if (answerObj.id === QuestionAnswerObj.answerId) {
+                    return answerObj.name;
+                  }
+                })}
+              </p>
+            );
+          } else {
+            return (
+              <p key={QuestionAnswerObj.id} className="QuizView-question-grey">
+                {answers.map((answerObj) => {
+                  if (answerObj.id === QuestionAnswerObj.answerId) {
+                    return answerObj.name;
+                  }
+                })}
+              </p>
+            );
+          }
+        } else if (selectedAnswers.includes(QuestionAnswerObj)) {
           return (
             <p
               key={QuestionAnswerObj.id}
@@ -28,6 +43,17 @@ export const QuizViewResults = ({ quizObj, answers }) => {
               })}
             </p>
           );
+        } else {
+          return (
+            <p key={QuestionAnswerObj.id} className="QuizView-question-grey">
+              {answers.map((answerObj) => {
+                if (answerObj.id === QuestionAnswerObj.answerId) {
+                  return answerObj.name;
+                }
+              })}
+            </p>
+          );
+        }
       })}
     </div>
   );

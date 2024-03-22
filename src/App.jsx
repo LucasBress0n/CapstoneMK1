@@ -31,7 +31,7 @@ export const App = () => {
               currentUser={currentUser}
               updateCurrentUser={updateCurrentUser}
             />
-            <HomeView />
+            <HomeView currentUser={currentUser} />
           </>
         }
       />

@@ -3,6 +3,11 @@ import { Link } from "react-router-dom";
 import { NavbarProfile } from "./NavbarProfile/NavbarProfile";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import houseimg from "../images/houseimg.png";
+import gear from "../images/gear.png";
+import magnifyingglass from "../images/magnifyingglass.png";
+import pencil from "../images/pencil.png";
+import useravatar from "../images/useravatar.png";
 
 export const Navbar = ({ currentUser, updateCurrentUser }) => {
   const navigate = useNavigate();
@@ -17,20 +22,14 @@ export const Navbar = ({ currentUser, updateCurrentUser }) => {
             {currentUser?.id ? (
               <li className="navbar-item">
                 <Link className="navbar-link" to="/home">
-                  <img
-                    src="./src/Components/images/houseimg.png"
-                    className="navbar-img-forlist"
-                  />
+                  <img src={houseimg} className="navbar-img-forlist" />
                   Home
                 </Link>
               </li>
             ) : (
               <li className="navbar-item">
                 <Link className="navbar-link" to="/login">
-                  <img
-                    src="./src/Components/images/houseimg.png"
-                    className="navbar-img-forlist"
-                  />
+                  <img src={houseimg} className="navbar-img-forlist" />
                   Home
                 </Link>
               </li>
@@ -38,20 +37,14 @@ export const Navbar = ({ currentUser, updateCurrentUser }) => {
             {currentUser?.id ? (
               <li className="navbar-item">
                 <Link className="navbar-link" to="/explore">
-                  <img
-                    src="./src/Components/images/magnifyingglass.png"
-                    className="navbar-img-forlist"
-                  />
+                  <img src={magnifyingglass} className="navbar-img-forlist" />
                   Explore
                 </Link>
               </li>
             ) : (
               <li className="navbar-item">
                 <Link className="navbar-link" to="/login">
-                  <img
-                    src="./src/Components/images/magnifyingglass.png"
-                    className="navbar-img-forlist"
-                  />
+                  <img src={magnifyingglass} className="navbar-img-forlist" />
                   Explore
                 </Link>
               </li>
@@ -61,10 +54,7 @@ export const Navbar = ({ currentUser, updateCurrentUser }) => {
             {currentUser?.id && (
               <li className="navbar-item">
                 <Link className="navbar-link" to="/create">
-                  <img
-                    src="./src/Components/images/pencil.png"
-                    className="navbar-img-forlist"
-                  />
+                  <img src={pencil} className="navbar-img-forlist" />
                   Create
                 </Link>
               </li>
@@ -72,10 +62,7 @@ export const Navbar = ({ currentUser, updateCurrentUser }) => {
             {currentUser?.id && (
               <li className="navbar-item">
                 <Link className="navbar-link" to="/profile">
-                  <img
-                    src="./src/Components/images/useravatar.png"
-                    className="navbar-img-forlist"
-                  />
+                  <img src={useravatar} className="navbar-img-forlist" />
                   Profile
                 </Link>
               </li>
@@ -83,10 +70,7 @@ export const Navbar = ({ currentUser, updateCurrentUser }) => {
             {currentUser?.id && (
               <li className="navbar-item">
                 <Link className="navbar-link" to="/settings">
-                  <img
-                    src="./src/Components/images/gear.png"
-                    className="navbar-img-forlist"
-                  />
+                  <img src={gear} className="navbar-img-forlist" />
                   Settings
                 </Link>
               </li>
