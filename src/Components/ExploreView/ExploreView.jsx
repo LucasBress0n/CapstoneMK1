@@ -4,6 +4,7 @@ import gear from "../images/gear.png";
 import { useState } from "react";
 import { useEffect } from "react";
 import { getAllQuizzesExpandUser } from "../../Services/homeService";
+import { Link } from "react-router-dom";
 
 export const ExploreView = () => {
   const [allQuizzesAndPosts, setAllQuizzesAndPosts] = useState([]);
@@ -18,19 +19,63 @@ export const ExploreView = () => {
     });
   }, []);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const options = {
+      Title: true,
+      Author: true,
+      Date: true,
+    };
+    setFilterOptions(options);
+  }, []);
 
   useEffect(() => {
-    const searchedPostsAndQuizzes = allQuizzes.filter(
-      (item) =>
-        item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.quizDate.includes(searchTerm) ||
-        item.user.name.toLowerCase().includes(searchTerm.toLocaleLowerCase())
-    );
-    setFilter(searchedPostsAndQuizzes);
-  }, [searchTerm, allQuizzes]);
+    let searchedPostsAndQuizzes = [...allQuizzes];
 
-  useEffect(() => {}, []);
+    // Try having a copy of a copy?
+    const array = [];
+
+    if (filterOptions.Title) {
+      let copy = [...searchedPostsAndQuizzes];
+      copy = searchedPostsAndQuizzes.filter((item) =>
+        item.title.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      if (copy.length != 0) {
+        copy.map((copyObj) => {
+          if (!array.includes(copyObj)) {
+            array.push(copyObj);
+          }
+        });
+      }
+    }
+    if (filterOptions.Author) {
+      let copy = [...searchedPostsAndQuizzes];
+      copy = searchedPostsAndQuizzes.filter((item) =>
+        item.user.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      if (copy.length != 0) {
+        copy.map((copyObj) => {
+          if (!array.includes(copyObj)) {
+            array.push(copyObj);
+          }
+        });
+      }
+    }
+    if (filterOptions.Date) {
+      let copy = [...searchedPostsAndQuizzes];
+      copy = searchedPostsAndQuizzes.filter((item) =>
+        item.quizDate.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      if (copy.length != 0) {
+        copy.map((copyObj) => {
+          if (!array.includes(copyObj)) {
+            array.push(copyObj);
+          }
+        });
+      }
+    }
+
+    setFilter(array);
+  }, [searchTerm, allQuizzes]);
 
   return (
     <main className="ExploreView-main-container">
@@ -48,16 +93,25 @@ export const ExploreView = () => {
         <div className="ExploreView-posts-container">
           {filter.map((quizObj) => {
             return (
-              <section key={quizObj.id} className="ExploreView-quiz-section">
-                <img className="ExploreView-quiz-banner" src={quizObj.banner} />
-                <div className="ExploreView-quiz-userInfo">
-                  <p>{quizObj.title}</p>
-                  <p>{quizObj.quizDate}</p>
-                </div>
-                <div className="ExploreView-quiz-authorInfo">
-                  <p>{quizObj.user.name}</p>
-                </div>
-              </section>
+              <Link
+                className="ExploreView-post-link"
+                key={quizObj.id}
+                to={`/quiz/${quizObj.id}`}
+              >
+                <section className="ExploreView-quiz-section">
+                  <img
+                    className="ExploreView-quiz-banner"
+                    src={quizObj.banner}
+                  />
+                  <div className="ExploreView-quiz-userInfo">
+                    <p>{quizObj.title}</p>
+                    <p>{quizObj.quizDate}</p>
+                  </div>
+                  <div className="ExploreView-quiz-authorInfo">
+                    <p>{quizObj.user.name}</p>
+                  </div>
+                </section>
+              </Link>
             );
           })}
         </div>
@@ -69,11 +123,37 @@ export const ExploreView = () => {
             Searching By
           </header>
           <div className="ExploreView-filterQuiz-options-container">
-            <input defaultChecked id="title" name="title" type="checkbox" />
+            <input
+              defaultChecked
+              onChange={() => {
+                filterOptions.Title = !filterOptions.Title;
+              }}
+              id="title"
+              name="title"
+              type="checkbox"
+            />
             <label htmlFor="title">Title</label>
-            <input defaultChecked id="author" name="author" type="checkbox" />
+
+            <input
+              defaultChecked
+              onChange={() => {
+                filterOptions.Author = !filterOptions.Author;
+              }}
+              id="author"
+              name="author"
+              type="checkbox"
+            />
             <label htmlFor="author">Author</label>
-            <input defaultChecked id="date" name="date" type="checkbox" />
+
+            <input
+              defaultChecked
+              onChange={() => {
+                filterOptions.Date = !filterOptions.Date;
+              }}
+              id="date"
+              name="date"
+              type="checkbox"
+            />
             <label htmlFor="date">Date</label>
           </div>
         </div>

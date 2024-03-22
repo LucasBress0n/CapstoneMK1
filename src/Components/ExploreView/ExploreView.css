@@ -44,6 +44,14 @@
   flex-basis: 80%;
 }
 
+.ExploreView-quiz-userInfo:hover {
+  background-color: #9dbcc0;
+}
+
+.ExploreView-quiz-authorInfo:hover {
+  background-color: #8cc0c0;
+}
+
 .ExploreView-quiz-userInfo > p {
   margin-left: 2%;
 }
@@ -92,4 +100,9 @@
 
 .ExploreView-type-search {
   border-top: black solid 1px;
+}
+
+.ExploreView-post-link {
+  text-decoration: none;
+  color: black;
 }
