@@ -150,7 +150,7 @@
 
   .LoginView-animation-can-you span {
     opacity: 0%;
-    animation: ghost 7.0s linear forwards;
+    animation: ghost 5.0s linear forwards;
   }
 
   .LoginView-animation-can-you span:nth-child(2) {
@@ -202,7 +202,7 @@
   .LoginView-animation-find-the-answer span {
     text-align: center;
     opacity: 0%;
-    animation: ghost 7.0s linear forwards;
+    animation: ghost 4.0s linear forwards;
   }
 
   .LoginView-animation-find-the-answer span:nth-child(1) {

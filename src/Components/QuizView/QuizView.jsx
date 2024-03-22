@@ -122,6 +122,7 @@ export const QuizView = () => {
           <button
             onClick={() => {
               setQuizCompleted(true);
+              window.scrollTo(0, 0);
             }}
           >
             Submit

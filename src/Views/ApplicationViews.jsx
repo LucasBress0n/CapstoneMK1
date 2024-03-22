@@ -5,6 +5,7 @@ import { CreateView } from "../Components/CreateView/CreateView";
 import { QuizView } from "../Components/QuizView/QuizView";
 import { ProfileView } from "../Components/ProfileView/ProfileView";
 import { EditView } from "../Components/EditView/EditView";
+import { ExploreView } from "../Components/ExploreView/ExploreView";
 
 export const ApplicationViews = ({ currentUser, updateCurrentUser }) => {
   return (
@@ -21,7 +22,7 @@ export const ApplicationViews = ({ currentUser, updateCurrentUser }) => {
           </>
         }
       >
-        <Route path="explore" element={"Explore"} />
+        <Route path="explore" element={<ExploreView />} />
         <Route
           path="create"
           element={<CreateView currentUser={currentUser} />}

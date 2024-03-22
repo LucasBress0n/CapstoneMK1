@@ -32,9 +32,7 @@ export const HomeView = ({ currentUser }) => {
     const post = {
       userId: currentUser.id,
       body: postText,
-      postDate: Math.floor(
-        new Date(new Date().toLocaleDateString()).getTime() / 1000
-      ),
+      postDate: new Date().toLocaleDateString(),
     };
 
     console.log(post);

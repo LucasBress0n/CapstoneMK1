@@ -1,63 +1,63 @@
 .QuizView-container {
-    margin: auto;
-    border: 1px black solid;
+  margin: auto;
+  border: 1px black solid;
 }
 
 .QuizView-profile-container {
-    width: 50px;
-    display: flex;
+  width: 50px;
+  display: flex;
 }
 
 .QuizView-user-profile {
-    width: 100%;
+  width: 100%;
 }
 
 .QuizView-questions-list {
-    margin: 1% 5% 1% 5%; 
-    text-align: center;
-    user-select: none;
-    border: 2px black solid;
-    background-color: aliceblue;
+  margin: 1% 5% 1% 5%;
+  text-align: center;
+  user-select: none;
+  border: 2px black solid;
+  background-color: aliceblue;
 }
 
 .QuizView-question-questionText {
-    font-size: large;
-    font-weight: bold;
+  font-size: large;
+  font-weight: bold;
 }
 
 .QuizView-question-correct {
-    background-color: greenyellow;
+  background-color: greenyellow;
 }
 
 .QuizView-question-incorrect {
-    background-color: red;
+  background-color: red;
 }
 
 .QuizView-question-grey {
-    background-color: #7f7f7f;
+  background-color: #7f7f7f;
 }
 
 .QuizView-profile-main-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content:space-around; 
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .QuizView-questionAnswer-p {
-    border: 1px black solid;
-    margin: 1% 2% 0px 2%;
+  border: 1px black solid;
+  margin: 1% 2% 0px 2%;
 }
 
 .QuizView-questionAnswer-p:hover {
-    background-color: #0397c8;
+  background-color: #0397c8;
 }
 
 .QuizView-results-main-container {
-    width: 80vh
+  width: 80vh;
 }
 
 .QuizView-questions-list {
-    height: 20vh;
-    margin-top: 50px;
+  height: fit-content;
+  margin-top: 50px;
 }

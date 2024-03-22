@@ -1,0 +1,95 @@
+.ExploreView-main-container {
+  margin: auto;
+  margin-left: 30%;
+  margin-top: 2%;
+  display: flex;
+}
+
+.ExploreView-searchbar-img {
+  width: 50px;
+  mix-blend-mode: multiply;
+}
+
+.ExploreView-header {
+  display: flex;
+}
+
+.ExploreView-searchbar-input {
+  width: 80vh;
+  font-size: xx-large;
+}
+
+.ExploreView-posts-container {
+  margin-top: 2%;
+  background-color: white;
+  border: 3px black solid;
+}
+
+.ExploreView-quiz-section {
+  display: flex;
+  flex-direction: row;
+  border: 2px black solid;
+  border-left: none;
+  border-right: none;
+  margin-top: 3%;
+}
+
+.ExploreView-quiz-banner {
+  width: 150px;
+}
+
+.ExploreView-quiz-userInfo {
+  border-left: 3px black solid;
+  background-color: #d6faff;
+  flex-basis: 80%;
+}
+
+.ExploreView-quiz-userInfo > p {
+  margin-left: 2%;
+}
+
+.ExploreView-quiz-authorInfo {
+  flex-basis: 20%;
+  background-color: #b4f7f7;
+  border-left: black solid 2px;
+}
+
+.ExploreView-quiz-authorInfo > p {
+  padding: 0px;
+  margin: 0px;
+  float: right;
+  margin: 2% 3% 0px 0px;
+  text-align: right;
+}
+
+.ExploreView-filter-container {
+  border: 1px black solid;
+  margin-left: 9%;
+  max-height: 20vh;
+  background-color: beige;
+  width: 40vh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 10px 15px 0px 15px;
+}
+
+.ExploreView-filter-searchingby {
+  display: flex;
+  flex-direction: column;
+  margin-top: 9%;
+}
+
+.ExploreView-filter-header {
+  font-weight: bold;
+  border-bottom: black solid 1px;
+}
+
+.ExploreView-filterQuiz-options-container {
+  display: flex;
+  margin: auto;
+}
+
+.ExploreView-type-search {
+  border-top: black solid 1px;
+}
