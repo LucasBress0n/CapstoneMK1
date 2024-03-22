@@ -4,6 +4,12 @@ export const getAllQuizzesExpandUser = () => {
   );
 };
 
+export const getAllPostsExpandUser = () => {
+  return fetch(`http://localhost:8080/post/?_expand=user`).then((res) =>
+    res.json()
+  );
+};
+
 export const getCurrentUserProfile = (currentUser) => {
   return fetch(`http://localhost:8080/users/${currentUser.id}`).then((res) =>
     res.json()

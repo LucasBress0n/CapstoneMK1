@@ -1,4 +1,5 @@
 import {
+  getAllPostsExpandUser,
   getAllQuizzesExpandUser,
   getCurrentUserProfile,
   postNewPostFromHomeView,
@@ -8,9 +9,11 @@ import { useEffect, useState } from "react";
 import { HomeViewQuizzes } from "./HomeViewQuizzes/HomeViewQuizzes";
 
 export const HomeView = ({ currentUser }) => {
+  const [allQuizzesAndPosts, setAllQuizzesAndPosts] = useState([]);
   const [currentUserProfile, setCurrentUserProfile] = useState({});
   const [postText, setPostText] = useState("");
   const [allQuizzes, setAllQuizzes] = useState([]);
+  const [allPosts, setAllPosts] = useState([]);
 
   useEffect(() => {
     if (currentUser?.id) {
@@ -26,6 +29,47 @@ export const HomeView = ({ currentUser }) => {
     });
   }, []);
 
+  useEffect(() => {
+    getAllPostsExpandUser().then((postObj) => {
+      setAllPosts(postObj);
+    });
+  }, []);
+
+  useEffect(() => {
+    const Total = allQuizzes.length + allPosts.length;
+    const randomPostAndQuizGen = [];
+    const allPostsAndQuizzes = [];
+    if (allPosts.length != 0) {
+      allPosts.map((postObj) => {
+        allPostsAndQuizzes.push(postObj);
+      });
+    }
+    if (allQuizzes.length != 0) {
+      allQuizzes.map((quizObj) => {
+        allPostsAndQuizzes.push(quizObj);
+      });
+    }
+
+    while (randomPostAndQuizGen.length !== Total) {
+      const randObj = allPostsAndQuizzes[Math.floor(Math.random() * Total)];
+      if (!randomPostAndQuizGen.includes(randObj)) {
+        randomPostAndQuizGen.push(randObj);
+      }
+    }
+
+    if (allPostsAndQuizzes.length != 0) {
+      setAllQuizzesAndPosts(randomPostAndQuizGen);
+    }
+
+    // while (randomPostAndQuizGen.length !== Total) {
+    //   const randObj = allPostsAndQuizzes[]
+    // }
+  }, [allPosts]);
+
+  useEffect(() => {
+    console.log(allQuizzesAndPosts);
+  }, [allQuizzesAndPosts]);
+
   const handlePostSave = (evt) => {
     evt.preventDefault();
 
@@ -35,8 +79,8 @@ export const HomeView = ({ currentUser }) => {
       postDate: new Date().toLocaleDateString(),
     };
 
-    console.log(post);
-    // postNewPostFromHomeView(post);
+    postNewPostFromHomeView(post);
+    setPostText("");
   };
 
   return (
@@ -77,8 +121,22 @@ export const HomeView = ({ currentUser }) => {
           </div>
         )}
         <div className="HomeView-allPosts-container">
-          {allQuizzes.map((quizObj) => {
-            return <HomeViewQuizzes key={quizObj.id} quizObj={quizObj} />;
+          {allQuizzesAndPosts.map((object) => {
+            if (object.hasOwnProperty("title")) {
+              return (
+                <HomeViewQuizzes
+                  key={object.id + object.title}
+                  object={object}
+                />
+              );
+            } else {
+              return (
+                <HomeViewQuizzes
+                  key={object.id + object.body}
+                  object={object}
+                />
+              );
+            }
           })}
         </div>
       </div>

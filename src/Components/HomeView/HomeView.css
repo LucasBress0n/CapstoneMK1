@@ -1,112 +1,165 @@
 .HomeView-home-container {
-    border: 1px #00B4D8 solid;
-    margin: auto;
-    
+  border: 1px #00b4d8 solid;
+  margin: auto;
 }
 
 .HomeView-quiz-profilepicture {
-    width: 100%
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
 }
 
 .HomeView-user-profile {
-    display: flex;
-    padding: 1% 0px 0px 1%;
-
+  display: flex;
+  padding: 1% 0px 0px 1%;
 }
 
 .HomeView-quiz-title {
-    margin: 0px 0px 0px 0px;
-    text-align: center;
-    text-transform: capitalize;
-    font-size: large;
-    font-weight: bold;
+  margin: 0px 0px 0px 0px;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: large;
+  font-weight: bold;
 }
 
 .HomeView-ForYou-Following {
-    text-align: center;
+  text-align: center;
 }
 
 .HomeView-banner-container {
-    border: 2px solid #03045E;
-    border-radius: 3px;
-    margin: 3% 3% 3% 3%;
+  border: 2px solid #03045e;
+  border-radius: 3px;
+  margin: 3% 3% 3% 3%;
 }
 
 .HomeView-quiz-banner {
-    width: 100%;
-    margin: auto;
+  width: 100%;
+  margin: auto;
 }
 
 .HomeView-profilepicture-container {
-    width: 50px;
+  width: 50px;
+  border: black 1px solid;
 }
 
 .Homeview-profile-displayname {
-    margin: 5% 0px 0px 0px;
+  margin: 5% 0px 0px 0px;
 }
 
 .Homeview-profile-name {
-    margin: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+  font-size: small;
 }
 
-.HomeView-post-main-container {
-    border: 1px solid #0077B6;
-    opacity: 90%;
+.Homeview-quiz-profilenames {
+  margin: 1% 0px 0px 2%;
 }
 
-.HomeView-post-main-container:hover {
-    background-color: #90E0EF;
+.HomeView-quiz-main-container {
+  border: 1px solid #0077b6;
+  opacity: 90%;
+}
+
+.HomeView-quiz-main-container:hover {
+  background-color: #90e0ef;
 }
 
 .HomeView-allPosts-container {
-    background-color: #deecfc;
+  background-color: #deecfc;
 }
 
 .HomeView-createpost-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #f1f8ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f1f8ff;
 }
 
 .HomeView-textarea-container {
-    display: flex;
+  display: flex;
 }
 
 .HomeView-ForYou-Following {
-    border-bottom: 5px solid #00B4D8;
+  border-bottom: 5px solid #00b4d8;
 }
 
 .HomeView-createpost-profilepicture {
-    width: 50px;
-    height: 50px;
+  width: 50px;
+  height: 50px;
 }
 
 .HomeView-createpost-textarea {
-    font-size: x-large;
-    border: none;
-    outline: none;
-    background-color: #f1f8ff;
-    flex-basis: 100%;
-    height: 10vh;
-    text-align:left;
-    padding: 1% 4% 2px 2%;
-    max-lines: 4;
-    resize: none;
+  font-size: x-large;
+  border: none;
+  outline: none;
+  background-color: #f1f8ff;
+  flex-basis: 100%;
+  height: 10vh;
+  text-align: left;
+  padding: 1% 4% 2px 2%;
+  max-lines: 4;
+  resize: none;
 }
 
 .HomeView-createpost-btn {
-    margin-left: 90.1%;
-    width: 10%;
-    border: none;
-    border: 1px solid black;
-    border-radius: 2px;
-    background-color: #00B4D8;
+  margin-left: 90.1%;
+  width: 10%;
+  border: none;
+  border: 1px solid black;
+  border-radius: 2px;
+  background-color: #00b4d8;
 }
 
 .HomeView-createpost-btn:hover {
-    background-color: #008eab;
-    -webkit-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    transform: scale(1.1);
+  background-color: #008eab;
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.HomeView-post-image {
+  padding: 3% 0px 0px 3%;
+  width: 50px;
+  height: 50px;
+}
+
+.HomeView-post-info {
+}
+
+.HomeView-post-header {
+  display: flex;
+  margin-bottom: 4%;
+}
+
+.HomeView-post-body-container {
+  margin: auto;
+}
+
+.HomeView-post-body {
+  margin-left: 3%;
+}
+
+.HomeView-post-infoNames {
+  display: flex;
+  margin: 3% 0px 0px 3%;
+}
+
+.HomeView-post-displayname {
+  font-size: large;
+  font-weight: bolder;
+}
+
+.HomeView-post-name {
+  margin-left: 1%;
+  opacity: 50%;
+  color: gray;
+  font-size: smaller;
+}
+
+.HomeView-post-infoContainer {
+  width: 100%;
+}
+
+.Homeview-profile-displayname {
+  font-weight: bold;
 }
