@@ -3,12 +3,16 @@ import magnifyingglass from "../images/magnifyingglass.png";
 import gear from "../images/gear.png";
 import { useState } from "react";
 import { useEffect } from "react";
-import { getAllQuizzesExpandUser } from "../../Services/homeService";
+import {
+  getAllPostsExpandUser,
+  getAllQuizzesExpandUser,
+} from "../../Services/homeService";
 import { Link } from "react-router-dom";
 
 export const ExploreView = () => {
   const [allQuizzesAndPosts, setAllQuizzesAndPosts] = useState([]);
   const [allQuizzes, setAllQuizzes] = useState([]);
+  const [allPosts, setAllPosts] = useState([]);
   const [filterOptions, setFilterOptions] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filter, setFilter] = useState([]);
@@ -20,6 +24,39 @@ export const ExploreView = () => {
   }, []);
 
   useEffect(() => {
+    getAllPostsExpandUser().then((postObj) => {
+      setAllPosts(postObj);
+    });
+  }, []);
+
+  useEffect(() => {
+    const Total = allQuizzes.length + allPosts.length;
+    const randomPostAndQuizGen = [];
+    const allPostsAndQuizzes = [];
+    if (allPosts.length != 0) {
+      allPosts.map((postObj) => {
+        allPostsAndQuizzes.push(postObj);
+      });
+    }
+    if (allQuizzes.length != 0) {
+      allQuizzes.map((quizObj) => {
+        allPostsAndQuizzes.push(quizObj);
+      });
+    }
+
+    while (randomPostAndQuizGen.length !== Total) {
+      const randObj = allPostsAndQuizzes[Math.floor(Math.random() * Total)];
+      if (!randomPostAndQuizGen.includes(randObj)) {
+        randomPostAndQuizGen.push(randObj);
+      }
+    }
+
+    if (allPostsAndQuizzes.length != 0) {
+      setAllQuizzesAndPosts(randomPostAndQuizGen);
+    }
+  }, [allPosts]);
+
+  useEffect(() => {
     const options = {
       Title: true,
       Author: true,
@@ -29,7 +66,7 @@ export const ExploreView = () => {
   }, []);
 
   useEffect(() => {
-    let searchedPostsAndQuizzes = [...allQuizzes];
+    let searchedPostsAndQuizzes = [...allQuizzesAndPosts];
 
     // Try having a copy of a copy?
     const array = [];
@@ -37,7 +74,7 @@ export const ExploreView = () => {
     if (filterOptions.Title) {
       let copy = [...searchedPostsAndQuizzes];
       copy = searchedPostsAndQuizzes.filter((item) =>
-        item.title.toLowerCase().includes(searchTerm.toLowerCase())
+        item?.title?.toLowerCase().includes(searchTerm.toLowerCase())
       );
       if (copy.length != 0) {
         copy.map((copyObj) => {
@@ -62,8 +99,10 @@ export const ExploreView = () => {
     }
     if (filterOptions.Date) {
       let copy = [...searchedPostsAndQuizzes];
-      copy = searchedPostsAndQuizzes.filter((item) =>
-        item.quizDate.toLowerCase().includes(searchTerm.toLowerCase())
+      copy = searchedPostsAndQuizzes.filter(
+        (item) =>
+          item?.quizDate?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          item?.postDate?.toLowerCase().includes(searchTerm.toLowerCase())
       );
       if (copy.length != 0) {
         copy.map((copyObj) => {
@@ -91,28 +130,52 @@ export const ExploreView = () => {
           />
         </header>
         <div className="ExploreView-posts-container">
-          {filter.map((quizObj) => {
-            return (
-              <Link
-                className="ExploreView-post-link"
-                key={quizObj.id}
-                to={`/quiz/${quizObj.id}`}
-              >
-                <section className="ExploreView-quiz-section">
-                  <img
-                    className="ExploreView-quiz-banner"
-                    src={quizObj.banner}
-                  />
-                  <div className="ExploreView-quiz-userInfo">
-                    <p>{quizObj.title}</p>
-                    <p>{quizObj.quizDate}</p>
-                  </div>
-                  <div className="ExploreView-quiz-authorInfo">
-                    <p>{quizObj.user.name}</p>
-                  </div>
-                </section>
-              </Link>
-            );
+          {filter.map((object) => {
+            if (object.hasOwnProperty("title")) {
+              return (
+                <Link
+                  className="ExploreView-post-link"
+                  key={object.id + object.title}
+                  to={`/quiz/${object.id}`}
+                >
+                  <section className="ExploreView-quiz-section">
+                    <img
+                      className="ExploreView-quiz-banner"
+                      src={object.banner}
+                    />
+                    <div className="ExploreView-quiz-userInfo">
+                      <p>{object.title}</p>
+                      <p>{object.quizDate}</p>
+                    </div>
+                    <div className="ExploreView-quiz-authorInfo">
+                      <p>{object.user.name}</p>
+                    </div>
+                  </section>
+                </Link>
+              );
+            } else {
+              return (
+                <Link
+                  className="ExploreView-post-link"
+                  key={object.id + object.body}
+                  to={`/profile/${object.user.id}`}
+                >
+                  <section className="ExploreView-quiz-section">
+                    <img
+                      className="ExploreView-quiz-banner"
+                      src={object.user.profilepicture}
+                    />
+                    <div className="ExploreView-quiz-userInfo">
+                      <p>{object.body}</p>
+                      <p>{object.postDate}</p>
+                    </div>
+                    <div className="ExploreView-quiz-authorInfo">
+                      <p>{object.user.name}</p>
+                    </div>
+                  </section>
+                </Link>
+              );
+            }
           })}
         </div>
       </div>
