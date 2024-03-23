@@ -5,12 +5,15 @@ import { CreateProfilePosts } from "./CreateProfilePosts/CreateProfilePosts";
 
 export const ProfileView = ({ currentUser }) => {
   const [currentUserInfo, setCurrentUserInfo] = useState([]);
+  const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
-    getUserProfileAndQuizzesById(currentUser).then((currentObj) => {
-      setCurrentUserInfo(currentObj);
-    });
-  }, [currentUser]);
+    if (currentUser?.id) {
+      getUserProfileAndQuizzesById(currentUser).then((currentObj) => {
+        setCurrentUserInfo(currentObj);
+      });
+    }
+  }, [currentUser, refresh]);
 
   return (
     <div className="ProfileView-main-container">
@@ -27,7 +30,14 @@ export const ProfileView = ({ currentUser }) => {
         {currentUserInfo?.quiz?.length != 0 ? (
           <>
             {currentUserInfo?.quiz?.map((quizObj) => {
-              return <CreateProfilePosts key={quizObj.id} quizObj={quizObj} />;
+              return (
+                <CreateProfilePosts
+                  key={quizObj.id}
+                  quizObj={quizObj}
+                  setRefresh={setRefresh}
+                  refresh={refresh}
+                />
+              );
             })}
           </>
         ) : (
