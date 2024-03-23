@@ -75,7 +75,7 @@ export const deleteAnswer = (yeetedId) => {
     method: "DELETE",
   };
   const sendback = fetch(
-    `http://localhost:8080/question/${yeetedId.id}`,
+    `http://localhost:8080/questionAnswers/${yeetedId.id}`,
     deleteOption
   );
 };

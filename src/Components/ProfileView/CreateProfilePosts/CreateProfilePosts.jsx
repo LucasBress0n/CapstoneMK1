@@ -1,7 +1,18 @@
 import { Link } from "react-router-dom";
 import { deleteQuiz } from "../../../Services/userService";
+import { useEffect, useState } from "react";
+import { getAllQuestionsByQuizId } from "../../../Services/profileService";
+import { deleteAnswer, deleteQuestion } from "../../../Services/editService";
 
-export const CreateProfilePosts = ({ quizObj }) => {
+export const CreateProfilePosts = ({ quizObj, refresh, setRefresh }) => {
+  const [allQuestions, setAllQuestions] = useState([]);
+
+  useEffect(() => {
+    getAllQuestionsByQuizId(quizObj).then((arr) => {
+      setAllQuestions(arr);
+    });
+  }, [quizObj]);
+
   return (
     <>
       <div className="ProfileView-profile-post">
@@ -10,7 +21,14 @@ export const CreateProfilePosts = ({ quizObj }) => {
           <Link to={`/edit/${quizObj.id}`}>edit</Link>
           <button
             onClick={() => {
+              allQuestions.map((questionObj) => {
+                deleteQuestion(questionObj);
+                questionObj.questionAnswers.map((questAnsObj) => {
+                  deleteAnswer(questAnsObj);
+                });
+              });
               deleteQuiz(quizObj);
+              setRefresh(!refresh);
             }}
           >
             DEL
