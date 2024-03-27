@@ -1,12 +1,12 @@
 export const getAllQuizzesExpandUser = () => {
-  return fetch(`http://localhost:8080/quiz?_expand=user`).then((res) =>
-    res.json()
+  return fetch(`http://localhost:8080/quiz?_expand=user&_embed=likes`).then(
+    (res) => res.json()
   );
 };
 
 export const getAllPostsExpandUser = () => {
-  return fetch(`http://localhost:8080/post/?_expand=user`).then((res) =>
-    res.json()
+  return fetch(`http://localhost:8080/post/?_expand=user&_embed=likes`).then(
+    (res) => res.json()
   );
 };
 

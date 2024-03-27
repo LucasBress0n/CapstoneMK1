@@ -163,3 +163,17 @@
 .Homeview-profile-displayname {
   font-weight: bold;
 }
+
+.HomeView-footer-postslikes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.HomeView-quiz-footer-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
