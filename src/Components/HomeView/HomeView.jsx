@@ -41,11 +41,33 @@ export const HomeView = ({ currentUser }) => {
     const allPostsAndQuizzes = [];
     if (allPosts.length != 0) {
       allPosts.map((postObj) => {
+        if (postObj?.likes.length != 0) {
+          postObj.likes.map((likedObj) => {
+            if (likedObj.userId === currentUser.id) {
+              postObj.isLiked = true;
+            } else {
+              postObj.isLiked = false;
+            }
+          });
+        } else {
+          postObj.isLiked = false;
+        }
         allPostsAndQuizzes.push(postObj);
       });
     }
     if (allQuizzes.length != 0) {
       allQuizzes.map((quizObj) => {
+        if (quizObj?.likes.length != 0) {
+          quizObj.likes.map((likedObj) => {
+            if (likedObj.userId === currentUser.id) {
+              quizObj.isLiked = true;
+            } else {
+              quizObj.isLiked = false;
+            }
+          });
+        } else {
+          quizObj.isLiked = false;
+        }
         allPostsAndQuizzes.push(quizObj);
       });
     }
@@ -64,7 +86,7 @@ export const HomeView = ({ currentUser }) => {
     // while (randomPostAndQuizGen.length !== Total) {
     //   const randObj = allPostsAndQuizzes[]
     // }
-  }, [allPosts]);
+  }, [allPosts, allQuizzes]);
 
   useEffect(() => {
     console.log(allQuizzesAndPosts);
@@ -127,6 +149,9 @@ export const HomeView = ({ currentUser }) => {
                 <HomeViewQuizzes
                   key={object.id + object.title}
                   object={object}
+                  allQuizzesAndPosts={allQuizzesAndPosts}
+                  setAllQuizzesAndPosts={setAllQuizzesAndPosts}
+                  currentUser={currentUser}
                 />
               );
             } else {
@@ -134,6 +159,9 @@ export const HomeView = ({ currentUser }) => {
                 <HomeViewQuizzes
                   key={object.id + object.body}
                   object={object}
+                  allQuizzesAndPosts={allQuizzesAndPosts}
+                  setAllQuizzesAndPosts={setAllQuizzesAndPosts}
+                  currentUser={currentUser}
                 />
               );
             }

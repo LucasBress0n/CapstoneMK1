@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
+import { deleteLike, userLikePostOrQuiz } from "../../../Services/userService";
 
-export const HomeViewQuizzes = ({ object }) => {
+export const HomeViewQuizzes = ({
+  object,
+  allQuizzesAndPosts,
+  setAllQuizzesAndPosts,
+  currentUser,
+}) => {
   if (object.hasOwnProperty("title")) {
     return (
       <div className="HomeView-quiz-main-container">
@@ -29,6 +35,58 @@ export const HomeViewQuizzes = ({ object }) => {
             <img className="HomeView-quiz-banner" src={object.banner} />
           </Link>
         </div>
+        <footer className="HomeView-quiz-footer-container">
+          {object.isLiked === true ? (
+            <div
+              className="HomeView-quiz-footer-like"
+              onClick={() => {
+                const copy = [...allQuizzesAndPosts];
+                copy.map((quizObj) => {
+                  if (quizObj.hasOwnProperty("title")) {
+                    if (quizObj.id === object.id) {
+                      quizObj.isLiked = false;
+                      quizObj.likes.map((likedObj) => {
+                        if (likedObj.userId === currentUser.id) {
+                          deleteLike(likedObj);
+                          quizObj.likes = quizObj.likes.filter(
+                            (likes) => likes.id != likes.id
+                          );
+                        }
+                      });
+                    }
+                  }
+                });
+                setAllQuizzesAndPosts(copy);
+                // userLikePostOrQuiz(object, currentUser);
+              }}
+            >
+              {object.likes.length} ❤️
+            </div>
+          ) : (
+            <div
+              className="HomeView-quiz-footer-like"
+              onClick={() => {
+                const copy = [...allQuizzesAndPosts];
+                copy.map((quizObj) => {
+                  if (quizObj.hasOwnProperty("title")) {
+                    if (quizObj.id === object.id) {
+                      quizObj.isLiked = true;
+                      userLikePostOrQuiz(object, currentUser).then(
+                        (createdObj) => {
+                          quizObj.likes.push(createdObj);
+                        }
+                      );
+                    }
+                  }
+                });
+                setAllQuizzesAndPosts(copy);
+                // userLikePostOrQuiz(object, currentUser);
+              }}
+            >
+              {object.likes.length} ♡
+            </div>
+          )}
+        </footer>
       </div>
     );
   } else {
@@ -51,8 +109,59 @@ export const HomeViewQuizzes = ({ object }) => {
             <div className="HomeView-post-body">{object.body}</div>
           </div>
         </header>
-
-        <footer>{object.postDate}</footer>
+        <footer className="HomeView-footer-postslikes">
+          <div>{object.postDate}</div>
+          {object.isLiked === true ? (
+            <div
+              className="HomeView-post-footer-like"
+              onClick={() => {
+                const copy = [...allQuizzesAndPosts];
+                copy.map((postObj) => {
+                  if (postObj.hasOwnProperty("body")) {
+                    if (postObj.id === object.id) {
+                      postObj.isLiked = false;
+                      postObj.likes.map((likedObj) => {
+                        if (likedObj.userId === currentUser.id) {
+                          deleteLike(likedObj);
+                          postObj.likes = postObj.likes.filter(
+                            (likes) => likes.id != likes.id
+                          );
+                        }
+                      });
+                    }
+                  }
+                });
+                setAllQuizzesAndPosts(copy);
+                // userLikePostOrQuiz(object, currentUser);
+              }}
+            >
+              {object.likes.length} ❤️
+            </div>
+          ) : (
+            <div
+              className="HomeView-post-footer-like"
+              onClick={() => {
+                const copy = [...allQuizzesAndPosts];
+                copy.map((postObj) => {
+                  if (postObj.hasOwnProperty("body")) {
+                    if (postObj.id === object.id) {
+                      postObj.isLiked = true;
+                      userLikePostOrQuiz(object, currentUser).then(
+                        (createdObj) => {
+                          postObj.likes.push(createdObj);
+                        }
+                      );
+                    }
+                  }
+                });
+                setAllQuizzesAndPosts(copy);
+                // userLikePostOrQuiz(object, currentUser);
+              }}
+            >
+              {object.likes.length} ♡
+            </div>
+          )}
+        </footer>
       </div>
     );
   }
