@@ -6,6 +6,7 @@ import { QuizView } from "../Components/QuizView/QuizView";
 import { ProfileView } from "../Components/ProfileView/ProfileView";
 import { EditView } from "../Components/EditView/EditView";
 import { ExploreView } from "../Components/ExploreView/ExploreView";
+import { SettingsView } from "../Components/SettingsView/SettingsView";
 
 export const ApplicationViews = ({ currentUser, updateCurrentUser }) => {
   return (
@@ -31,7 +32,10 @@ export const ApplicationViews = ({ currentUser, updateCurrentUser }) => {
           path="profile"
           element={<ProfileView currentUser={currentUser} />}
         />
-        <Route path="settings" element={"Settings"} />
+        <Route
+          path="settings"
+          element={<SettingsView currentUser={currentUser} />}
+        />
         <Route path="quiz">
           <Route path=":quizId" element={<QuizView />} />
         </Route>

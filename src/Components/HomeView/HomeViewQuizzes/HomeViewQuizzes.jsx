@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { deleteLike, userLikePostOrQuiz } from "../../../Services/userService";
+import { useEffect, useState } from "react";
+import { getQuizOrPostSettingsByUserId } from "../../../Services/homeService";
 
 export const HomeViewQuizzes = ({
   object,
@@ -7,6 +9,18 @@ export const HomeViewQuizzes = ({
   setAllQuizzesAndPosts,
   currentUser,
 }) => {
+  const [userSettings, setUserSettings] = useState({});
+
+  useEffect(() => {
+    getQuizOrPostSettingsByUserId(object).then((obj) => {
+      setUserSettings(obj[0]);
+    });
+  }, [object]);
+
+  // useEffect(() => {
+  //   console.log(userSettings);
+  // }, [userSettings]);
+
   if (object.hasOwnProperty("title")) {
     return (
       <div className="HomeView-quiz-main-container">
@@ -23,7 +37,10 @@ export const HomeViewQuizzes = ({
                 <p className="Homeview-profile-displayname">
                   {object.user.displayname}
                 </p>
-                <p className="Homeview-profile-name">@{object.user.name}</p>
+                <p className="Homeview-profile-name">
+                  {userSettings?.displayAccountName === false &&
+                    `@${object.user.name}`}
+                </p>
               </div>
             </section>
           </div>
@@ -60,7 +77,8 @@ export const HomeViewQuizzes = ({
                 // userLikePostOrQuiz(object, currentUser);
               }}
             >
-              {object.likes.length} ❤️
+              {userSettings?.hideLikes === false && `${object.likes.length}`}
+              ❤️
             </div>
           ) : (
             <div
@@ -83,7 +101,7 @@ export const HomeViewQuizzes = ({
                 // userLikePostOrQuiz(object, currentUser);
               }}
             >
-              {object.likes.length} ♡
+              {userSettings?.hideLikes === false && `${object.likes.length}`}♡
             </div>
           )}
         </footer>
@@ -103,7 +121,8 @@ export const HomeViewQuizzes = ({
                 {object.user.displayname}
               </article>
               <article className="HomeView-post-name">
-                @{object.user.name}
+                {userSettings?.displayAccountName === false &&
+                  `@${object.user.name}`}
               </article>
             </div>
             <div className="HomeView-post-body">{object.body}</div>
@@ -135,7 +154,8 @@ export const HomeViewQuizzes = ({
                 // userLikePostOrQuiz(object, currentUser);
               }}
             >
-              {object.likes.length} ❤️
+              {userSettings?.hideLikes === false && `${object.likes.length}`}
+              ❤️
             </div>
           ) : (
             <div
@@ -158,7 +178,7 @@ export const HomeViewQuizzes = ({
                 // userLikePostOrQuiz(object, currentUser);
               }}
             >
-              {object.likes.length} ♡
+              {userSettings?.hideLikes === false && `${object.likes.length}`}♡
             </div>
           )}
         </footer>

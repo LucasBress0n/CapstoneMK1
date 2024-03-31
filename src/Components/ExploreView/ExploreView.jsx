@@ -54,7 +54,7 @@ export const ExploreView = () => {
     if (allPostsAndQuizzes.length != 0) {
       setAllQuizzesAndPosts(randomPostAndQuizGen);
     }
-  }, [allPosts]);
+  }, [allPosts, allQuizzes]);
 
   useEffect(() => {
     const options = {
@@ -114,7 +114,7 @@ export const ExploreView = () => {
     }
 
     setFilter(array);
-  }, [searchTerm, allQuizzes]);
+  }, [searchTerm, allQuizzesAndPosts]);
 
   return (
     <main className="ExploreView-main-container">
@@ -155,25 +155,25 @@ export const ExploreView = () => {
               );
             } else {
               return (
-                <Link
-                  className="ExploreView-post-link"
-                  key={object.id + object.body}
-                  to={`/profile/${object.user.id}`}
-                >
-                  <section className="ExploreView-quiz-section">
+                <section className="ExploreView-quiz-section">
+                  <Link
+                    className="ExploreView-post-link"
+                    key={object.id + object.body}
+                    to={`/profile/${object.user.id}`}
+                  >
                     <img
                       className="ExploreView-quiz-banner"
                       src={object.user.profilepicture}
                     />
-                    <div className="ExploreView-quiz-userInfo">
-                      <p>{object.body}</p>
-                      <p>{object.postDate}</p>
-                    </div>
-                    <div className="ExploreView-quiz-authorInfo">
-                      <p>{object.user.name}</p>
-                    </div>
-                  </section>
-                </Link>
+                  </Link>
+                  <div className="ExploreView-quiz-userInfo">
+                    <p>{object.body}</p>
+                    <p>{object.postDate}</p>
+                  </div>
+                  <div className="ExploreView-quiz-authorInfo">
+                    <p>{object.user.name}</p>
+                  </div>
+                </section>
               );
             }
           })}

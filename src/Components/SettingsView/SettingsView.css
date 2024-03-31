@@ -1,0 +1,21 @@
+.SettingsView-main-container {
+  border: 1px solid black;
+  margin: auto;
+  margin-top: 3%;
+  width: 40%;
+  height: 70vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.SettingsView-option-container {
+  border: 1px solid black;
+  flex-grow: 3;
+  text-align: center;
+}
+
+.SettingsView-option-container > section {
+  margin-top: 3%;
+}

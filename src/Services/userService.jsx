@@ -70,3 +70,13 @@ export const deleteLike = (like) => {
 };
 
 // BUG IN CODE BECAUSE WHEN POSTING QUIZ OR POST YOU NEED THE LIKES TO CONTAIN THE OBJECT WITH THE NEWLY POSTED THING CAUSING IT TO NOT DELETE ON THE 2nd RUN
+
+export const createUserSettings = (userSettings) => {
+  fetch("http://localhost:8080/settings", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(userSettings),
+  });
+};
