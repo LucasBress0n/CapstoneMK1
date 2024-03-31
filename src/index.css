@@ -1,3 +1,11 @@
 #root {
-    display: flex;
+  display: flex;
+}
+
+:root {
+  --bodyColor: #caf0f8;
+}
+body {
+  background-color: var(--bodyColor);
+  font-family: Inter;
 }

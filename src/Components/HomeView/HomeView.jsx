@@ -7,6 +7,7 @@ import {
 import "./HomeView.css";
 import { useEffect, useState } from "react";
 import { HomeViewQuizzes } from "./HomeViewQuizzes/HomeViewQuizzes";
+import setBodyColor from "../../Services/setBodyColor";
 
 export const HomeView = ({ currentUser }) => {
   const [allQuizzesAndPosts, setAllQuizzesAndPosts] = useState([]);
@@ -88,9 +89,9 @@ export const HomeView = ({ currentUser }) => {
     // }
   }, [allPosts, allQuizzes]);
 
-  useEffect(() => {
-    console.log(allQuizzesAndPosts);
-  }, [allQuizzesAndPosts]);
+  // useEffect(() => {
+  //   console.log(allQuizzesAndPosts);
+  // }, [allQuizzesAndPosts]);
 
   const handlePostSave = (evt) => {
     evt.preventDefault();
@@ -109,9 +110,9 @@ export const HomeView = ({ currentUser }) => {
     <>
       <div className="HomeView-home-container">
         <div>
-          <header className="HomeView-ForYou-Following">
+          {/* <header className="HomeView-ForYou-Following">
             For you Following
-          </header>
+          </header> */}
         </div>
         {currentUser?.id && (
           <div className="HomeView-createpost-container">

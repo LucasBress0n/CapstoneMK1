@@ -5,6 +5,7 @@ import {
   createUser,
   getUserByName,
   getUserByEmail,
+  createUserSettings,
 } from "../../Services/userService";
 
 export const Register = () => {
@@ -15,6 +16,11 @@ export const Register = () => {
     displayname: "",
   });
   let navigate = useNavigate();
+  const settingsObj = {
+    isLightMode: true,
+    displayAccountName: false,
+    hideLikes: false,
+  };
 
   const registerNewUser = () => {
     const newUser = {
@@ -31,8 +37,10 @@ export const Register = () => {
             id: createdUser.id,
           })
         );
+        settingsObj.userId = createdUser.id;
+        createUserSettings(settingsObj);
 
-        navigate("/");
+        navigate("/home");
       }
     });
   };

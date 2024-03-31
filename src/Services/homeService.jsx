@@ -25,3 +25,9 @@ export const postNewPostFromHomeView = (post) => {
     body: JSON.stringify(post),
   });
 };
+
+export const getQuizOrPostSettingsByUserId = (object) => {
+  return fetch(`http://localhost:8080/settings?userId=${object.userId}`).then(
+    (res) => res.json()
+  );
+};
