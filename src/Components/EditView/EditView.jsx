@@ -178,6 +178,7 @@ export const EditView = ({ currentUser }) => {
         <div className="EditView-options-main-container">
           <div className="EditView-option-container">
             <button
+              className="EditView-option-btn"
               onClick={(e) => {
                 e.preventDefault();
                 const copy = [...allQuestions];
@@ -195,7 +196,7 @@ export const EditView = ({ currentUser }) => {
                 setAllQuestions(copy);
               }}
             >
-              Add
+              +
             </button>
             {currentQuiz &&
               allQuestions?.map((currentObj) => {
@@ -242,6 +243,7 @@ export const EditView = ({ currentUser }) => {
           <div className="EditView-option-container">
             {allAnswers.length != 0 && (
               <select
+                className="EditView-option-select"
                 onChange={(evt) => {
                   const copy = [...allQuestions];
                   copy.map((currentObj) => {
